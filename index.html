@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Laura Bustos – Diseñadora Gráfica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        /* ----- Reset ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f4f4f4;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ----- Layout general ----- */
+        .page {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ----- Header / Navbar ----- */
+        header {
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 24px;
+            font-size: 0.9rem;
+        }
+
+        .nav a {
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .nav a:hover::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background: #222;
+        }
+
+        /* ----- Hero ----- */
+        .hero-banner {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-text {
+            padding: 40px 24px 40px;
+            text-align: center;
+        }
+
+        .hero-title-main {
+            font-family: "Times New Roman", "Georgia", serif;
+            font-size: 2.1rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle-main {
+            font-size: 0.95rem;
+            color: #555;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin: 32px 0;
+        }
+
+        /* ----- Features (4 columnas) ----- */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            font-size: 0.85rem;
+        }
+
+        .feature-item h3 {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-item p {
+            color: #555;
+        }
+
+        /* ----- Banner de campaña ----- */
+        .campaign-banner {
+            margin: 48px 0;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        /* ----- Sección Descubre la Magia del Diseño ----- */
+        .section {
+            padding: 40px 24px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1.1fr 1.1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .section-title {
+            font-family: "Times New Roman", "Georgia", serif;
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+        }
+
+        .section-text p {
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            color: #555;
+        }
+
+        .section-text .btn {
+            margin-top: 8px;
+        }
+
+        .bullet-grid {
+            display: grid;
+            grid-template-columns: 0.5fr 1.5fr;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 16px;
+        }
+
+        .bullet-numbers {
+            border-right: 1px solid #eee;
+            padding: 16px 24px 16px 0;
+            font-size: 0.9rem;
+        }
+
+        .bullet-numbers div {
+            margin-bottom: 16px;
+        }
+
+        .bullet-numbers span {
+            color: #aaa;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .bullet-numbers p {
+            color: #555;
+        }
+
+        .portrait-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .portrait {
+            max-width: 320px;
+            border-radius: 40px;
+            overflow: hidden;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 999px;
+            background: #444;
+            color: #fff;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #000;
+        }
+
+        /* ----- ¿Por Qué Elegir Mi Trabajo? ----- */
+        .cta-center {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 16px;
+        }
+
+        .cta-title {
+            font-family: "Times New Roman", "Georgia", serif;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .cta-text {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* ----- Párrafo grande + portafolio Ratatouille ----- */
+        .big-text {
+            max-width: 780px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .portfolio-two {
+            margin-top: 8px;
+        }
+
+        .portfolio-two img {
+            width: 100%;
+            border-radius: 24px;
+            object-fit: cover;
+        }
+
+        /* ----- Sección ¿Por qué elegirme? ----- */
+        .reasons-section {
+            padding: 40px 24px 64px;
+        }
+
+        .reasons-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .reasons-title {
+            font-family: "Times New Roman", "Georgia", serif;
+            font-size: 1.6rem;
+        }
+
+        .reasons-list {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .reason-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            align-items: baseline;
+            border-top: 1px solid #eee;
+            padding-top: 16px;
+        }
+
+        .reason-number {
+            font-size: 2rem;
+            color: #aaa;
+        }
+
+        .reason-content h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .reason-content p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* ----- Contacto ----- */
+        .contact {
+            padding: 48px 24px 56px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .contact-title {
+            font-family: "Times New Roman", "Georgia", serif;
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+        }
+
+        .contact-text {
+            font-size: 0.9rem;
+            color: #555;
+            max-width: 620px;
+            margin: 0 auto 24px;
+        }
+
+        .btn-light {
+            background: #bfbfbf;
+            color: #222;
+        }
+
+        .btn-light:hover {
+            background: #999;
+        }
+
+        /* ----- Responsivo ----- */
+        @media (max-width: 1024px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .page {
+                border-radius: 0;
+            }
+
+            .bullet-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bullet-numbers {
+                border-right: none;
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            header {
+                padding: 12px 0;
+            }
+
+            .nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .hero-text {
+                padding: 32px 16px;
+            }
+
+            .hero-title-main {
+                font-size: 1.8rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .reason-item {
+                grid-template-columns: 60px 1fr;
+            }
+
+            .reasons-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="#inicio">Inicio</a>
+                <a href="#services">Specification</a>
+                <a href="#howto">How-to</a>
+                <a href="#contacto">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio">
+        <img class="hero-banner" src="C:\Users\user\Downloads\proyecto.png"
+             alt="Profesional de Diseño Gráfico – Laura Bustos">
+        <div class="container">
+            <div class="hero-text">
+                <h1 class="hero-title-main">Diseñadora Gráfica — Marketing &amp; Web</h1>
+                <p class="hero-subtitle-main">
+                    Bienvenida a mi portafolio profesional, el espacio donde el diseño se une con la estrategia.
+                    Desarrollo piezas visuales pensadas para comunicar mensajes claros, generar impacto y conectar
+                    con tu audiencia.
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- SERVICES -->
+                <div class="features" id="services">
+                    <div class="feature-item">
+                        <h3>Diseño Estratégico</h3>
+                        <p>
+                            Creo piezas visuales con propósito, pensadas para comunicar mensajes claros
+                            y generar impacto en la audiencia.
+                        </p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Creatividad Auténtica</h3>
+                        <p>
+                            Desarrollo propuestas originales apoyadas en tendencias actuales de diseño,
+                            tipografía, color y composición.
+                        </p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Proyectos Personalizados</h3>
+                        <p>
+                            Diseños creados a la medida: identidades visuales, campañas, piezas para redes sociales,
+                            branding y contenido comercial.
+                        </p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Calidad Profesional</h3>
+                        <p>
+                            Trabajo cada proyecto con atención al detalle, asegurando acabados limpios,
+                            coherencia visual y alto nivel estético.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Banner de campaña -->
+                <div class="campaign-banner">
+                    <img src="C:\Users\user\Downloads\Purple and Black Simple Coming Soon Banner.jpg" alt="Campaña Framevrs">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESCUBRE LA MAGIA DEL DISEÑO -->
+    <section class="section" id="howto">
+        <div class="container two-column">
+            <!-- Texto -->
+            <div class="section-text">
+                <h2 class="section-title">Descubre la Magia del Diseño</h2>
+                <p>
+                    Convierto cada proyecto en una experiencia visual única. Mi trabajo combina creatividad,
+                    estrategia y técnica para comunicar ideas de forma clara, atractiva y funcional.
+                </p>
+                <button class="btn">Ver proyectos</button>
+            </div>
+
+            <!-- Bullets + Foto -->
+            <div>
+                <div class="bullet-grid">
+                    <div class="bullet-numbers">
+                        <div>
+                            <span>01</span>
+                            <p>
+                                Explora una variedad de proyectos visuales creados para marcas, emprendimientos
+                                y campañas. Desde diseño editorial hasta piezas digitales.
+                            </p>
+                        </div>
+                        <div>
+                            <span>02</span>
+                            <p>
+                                Mis diseños se enfocan en lograr una presentación limpia, profesional y coherente
+                                con la identidad visual de cada marca.
+                            </p>
+                        </div>
+                        <div>
+                            <span>03</span>
+                            <p>
+                                Cada pieza está pensada para destacar en redes sociales, páginas web, impresos
+                                y presentaciones profesionales.
+                            </p>
+                        </div>
+                        <div>
+                            <span>04</span>
+                            <p>
+                                Consulta mi portafolio completo y descubre proyectos desarrollados con atención
+                                al detalle, creatividad y enfoque estratégico.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="portrait-wrapper">
+                        <div class="portrait">
+                            <img src="C:\Users\user\Downloads\foto FINAL (2).jpg"
+                                 alt="Retrato de la diseñadora gráfica">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿POR QUÉ ELEGIR MI TRABAJO? -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-center">
+                <h2 class="cta-title">¿Por Qué Elegir Mi Trabajo Como Diseñadora Gráfica?</h2>
+                <p class="cta-text">
+                    Porque creo diseños con intención, que conectan con las personas y comunican mensajes claros.
+                    Mis proyectos están realizados con creatividad, técnica y estilo para brindar soluciones visuales
+                    memorables que no pasan desapercibidas.
+                </p>
+                <button class="btn">Haz click</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEXTO GRANDE + PORTAFOLIO RATATOUILLE -->
+    <section class="section">
+        <div class="container">
+            <p class="big-text">
+                Creo piezas de diseño pensadas para comunicar, conectar y destacar. Cada proyecto está elaborado
+                con dedicación, cuidando su estética, composición y propósito visual para transmitir ideas con
+                claridad y estilo.
+            </p>
+
+            <div class="two-column portfolio-two">
+                <div>
+                    <img src="C:\Users\user\Downloads\Screenshot_2.jpg" alt="Póster Ratatouille">
+                </div>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿POR QUÉ ELEGIRME? -->
+    <section class="reasons-section">
+        <div class="container">
+            <div class="reasons-header">
+                <h2 class="reasons-title">¿Por qué elegirme?</h2>
+                <button class="btn btn-light">Haz click</button>
+            </div>
+
+            <div class="reasons-list">
+                <div class="reason-item">
+                    <div class="reason-number">01</div>
+                    <div class="reason-content">
+                        <h3>Servicios Personalizados</h3>
+                        <p>
+                            Descubre soluciones visuales creadas especialmente para tus necesidades:
+                            branding, diseño editorial, piezas gráficas, contenido digital y más.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="reason-item">
+                    <div class="reason-number">02</div>
+                    <div class="reason-content">
+                        <h3>Proceso Fácil y Acompañado</h3>
+                        <p>
+                            Podemos trabajar por WhatsApp o formulario. Te presento propuestas, las ajustamos juntas
+                            y avanzamos con un proceso claro, rápido y sin complicaciones.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="reason-item">
+                    <div class="reason-number">03</div>
+                    <div class="reason-content">
+                        <h3>Diseños Profesionales y Atractivos</h3>
+                        <p>
+                            Recibe piezas visuales creativas, limpias, funcionales y listas para usar en redes,
+                            presentaciones, marcas o proyectos académicos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="contact-title">Contact Us</h2>
+            <p class="contact-text">
+                ¿Necesitas una pieza gráfica, una portada, una revista, un branding o apoyo para un proyecto?
+                Estoy aquí para ayudarte a crear diseños memorables y profesionales.
+            </p>
+            <button class="btn btn-light">Haz click</button>
+        </div>
+    </section>
+
+</div>
+</body>
+</html>
